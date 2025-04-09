@@ -38,18 +38,22 @@ function confirmBooking() {
 function confirmBooking() {
     const name = document.getElementById('name').value.trim();
     const phone = document.getElementById('phone').value.trim();
-    const date = document.getElementById('date').value;
+    const dateInput = document.getElementById('date').value;
     const time = document.getElementById('time').value;
 
-    if (!name || !phone || !date || !time) {
+    if (!name || !phone || !dateInput || !time) {
       alert("Por favor, preencha todos os campos.");
       return;
     }
 
-    const message = `Olá, meu nome é *${name}*.\nGostaria de agendar um horário para o dia *${date}* às *${time}*.\nMeu telefone é: *${phone}*`;
+    // Converter a data para o formato brasileiro
+    const date = new Date(dateInput + 'T00:00:00');
+    const formattedDate = date.toLocaleDateString('pt-BR');
+
+    const message = `Olá, meu nome é *${name}*.\nGostaria de agendar um horário para o dia *${formattedDate}* às *${time}*.\nMeu telefone é: *${phone}*`;
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappNumber = "5586995311133"; // substitua pelo número correto da Andreya Cabelos
+    const whatsappNumber = "5586995311133"; // Substitua pelo número real
     const url = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
     window.open(url, '_blank');
