@@ -49,7 +49,7 @@ function confirmBooking() {
     const message = `Olá, meu nome é *${name}*.\nGostaria de agendar um horário para o dia *${date}* às *${time}*.\nMeu telefone é: *${phone}*`;
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappNumber = "5588999999999"; // substitua pelo número correto da Andreya Cabelos
+    const whatsappNumber = "5586995311133"; // substitua pelo número correto da Andreya Cabelos
     const url = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
     window.open(url, '_blank');
