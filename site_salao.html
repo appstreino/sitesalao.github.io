@@ -7,114 +7,23 @@
     <title>Andreya Cabelos</title>
     <link rel="stylesheet" href="style.css">
 
-    <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(to right, #fce4ec, #f8bbd0);
-            margin: 0;
-            padding: 0;
-            color: #4a148c;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        header {
-            background: linear-gradient(to right, #faf8f9, #fdfdfd);
-            padding: 120px 60px;
-            text-align: center;
-            color: white;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-        }
-
-        main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
-
-        section {
-            max-width: 800px;
-            width: 100%;
-            margin: 20px 0;
-            padding: 20px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        section h2 {
-            color: #db2777;
-            margin-bottom: 20px;
-        }
-
-        .mapa {
-            width: 100%;
-            height: 400px;
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .agendamento a {
-            display: inline-block;
-            background: #ec4899;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 30px;
-            font-size: 1.2em;
-            text-decoration: none;
-            transition: background 0.3s, transform 0.2s;
-        }
-
-        .agendamento a:hover {
-            background: #db2777;
-            transform: scale(1.05);
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #fce4ec;
-            color: #6b21a8;
-        }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.2em;
-            }
-
-            .agendamento a {
-                font-size: 1em;
-                padding: 12px 24px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            section {
-                margin: 15px 10px;
-                padding: 15px;
-            }
-
-            .mapa {
-                height: 250px;
-            }
-        }
-    </style>
 </head>
 
 <body>
     <header>
-        <h1>Andreya Cabelos</h1>
+        <div class="carousel-wrapper">
+            <div class="carousel">
+                <img src="imagens/ima2.jpg" alt="Imagem 1" style="width: 30px; height: 300px; object-fit: cover;">
+                <img src="imagens/ima3.jpg" alt="Imagem 2" style="width: 300px; height: 300px; object-fit: cover;">
+                <img src="imagens/ima4.jpeg" alt="Imagem 3" style="width: 300px; height: 300px; object-fit: cover;">
+                <img src="imagens/ima5.jpeg" alt="Imagem 1" style="width: 300px; height: 300px; object-fit: cover;">
+                <img src="imagens/ima6.jpeg" alt="Imagem 2" style="width: 300px; height: 300px; object-fit: cover;">
+                <img src="imagens/ima7.jpeg" alt="Imagem 3" style="width: 300px; height: 300px; object-fit: cover;">
+            </div>
+        </div>
+        <div class="header-overlay">
+            <h1>Andreya Cabelos</h1>
+        </div>
     </header>
 
     <main>
