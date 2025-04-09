@@ -10,13 +10,27 @@
 </head>
 
 <body>
+    
     <div class="container">
         <h1>Agendamento Andreya-cabelos</h1>
         <input type="text" id="name" placeholder="Nome completo">
         <input type="tel" id="phone" placeholder="Telefone">
+
         <select id="date">
             <option value="">Selecione uma data</option>
         </select>
+
+        <select id="servico">
+            <option value="">Solicitação de Serviços</option>
+            <option value="Hidratação">Hidratação</option>
+            <option value="Restauração">Restauração</option>
+            <option value="Cauterização">Cauterização</option>
+            <option value="Nutrição">Nutrição</option>
+            <option value="Brilho">Brilho</option>
+            <option value="Peeling">Peeling</option>
+            <option value="Matização">Matização</option>
+        </select>
+
         <input type="time" id="time">
         <button onclick="confirmBooking()">Confirmar Agendamento</button>
         <p id="confirmation" class="confirmation"></p>
