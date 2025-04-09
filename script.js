@@ -18,23 +18,16 @@ availableDates.forEach(dateStr => {
     dateSelect.appendChild(option);
 });
 
-function confirmBooking() {
-    const name = document.getElementById("name").value;
-    const phone = document.getElementById("phone").value;
-    const date = document.getElementById("date").value;
-    const time = document.getElementById("time").value;
-    const confirmation = document.getElementById("confirmation");
+// Aplicar máscara ao telefone
+const phoneInput = document.getElementById("phone");
+phoneInput.addEventListener("input", function (e) {
+    let value = e.target.value.replace(/\D/g, "");
+    if (value.length > 11) value = value.slice(0, 11);
+    value = value.replace(/^(\d{2})(\d)/g, "($1) $2");
+    value = value.replace(/(\d{5})(\d{1,4})$/, "$1-$2");
+    e.target.value = value;
+});
 
-    if (name && phone && date && time) {
-        const [year, month, day] = date.split("-");
-        const formattedDate = `${day}/${month}/${year}`;
-        confirmation.textContent = `Agendamento confirmado para ${name} no dia ${formattedDate} às ${time}.`;
-        confirmation.style.color = 'green';
-    } else {
-        confirmation.textContent = "Por favor, preencha todos os campos.";
-        confirmation.style.color = 'red';
-    }
-};
 function confirmBooking() {
     const name = document.getElementById('name').value.trim();
     const phone = document.getElementById('phone').value.trim();
@@ -42,19 +35,21 @@ function confirmBooking() {
     const time = document.getElementById('time').value;
 
     if (!name || !phone || !dateInput || !time) {
-      alert("Por favor, preencha todos os campos.");
-      return;
+        alert("Por favor, preencha todos os campos.");
+        return;
     }
 
     // Converter a data para o formato brasileiro
     const date = new Date(dateInput + 'T00:00:00');
     const formattedDate = date.toLocaleDateString('pt-BR');
 
-    const message = `Olá, meu nome é *${name}*.\nGostaria de agendar um horário para o dia *${formattedDate}* às *${time}*.\nMeu telefone é: *${phone}*`;
+    const message = `Olá, meu nome é *${name}*.
+Gostaria de agendar um horário para o dia *${formattedDate}* às *${time}*.
+Meu telefone é: *${phone}*`;
 
     const encodedMessage = encodeURIComponent(message);
     const whatsappNumber = "5586995311133"; // Substitua pelo número real
     const url = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
     window.open(url, '_blank');
-  }
+}
