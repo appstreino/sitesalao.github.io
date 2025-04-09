@@ -59,3 +59,146 @@ button:hover {
     color: green;
     font-weight: bold;
 }
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #fce4ec, #f8bbd0);
+    margin: 0;
+    padding: 0;
+    color: #4a148c;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background: linear-gradient(to right, #faf8f9, #fdfdfd);
+    padding: 120px 60px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+}
+
+header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+section {
+    max-width: 800px;
+    width: 100%;
+    margin: 20px 0;
+    padding: 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+section h2 {
+    color: #db2777;
+    margin-bottom: 20px;
+}
+
+.mapa {
+    width: 100%;
+    height: 400px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.agendamento a {
+    display: inline-block;
+    background: #ec4899;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 1.2em;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.agendamento a:hover {
+    background: #db2777;
+    transform: scale(1.05);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #fce4ec;
+    color: #6b21a8;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2em;
+    }
+
+    .agendamento a {
+        font-size: 1em;
+        padding: 12px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        margin: 15px 10px;
+        padding: 15px;
+    }
+
+    .mapa {
+        height: 250px;
+    }
+}
+
+.carousel {
+    display: flex;
+    width: calc(100vw * 6);
+    animation: spinCarousel 40s linear infinite;
+}
+
+.carousel img {
+    width: 100vw;
+    height: 300px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+@keyframes spinCarousel {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-300vw);
+    }
+}
+
+.header-overlay {
+    position: relative;
+    z-index: 1;
+}
+
+.carousel-wrapper {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
