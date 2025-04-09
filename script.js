@@ -34,4 +34,23 @@ function confirmBooking() {
         confirmation.textContent = "Por favor, preencha todos os campos.";
         confirmation.style.color = 'red';
     }
-}
+};
+function confirmBooking() {
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+
+    if (!name || !phone || !date || !time) {
+      alert("Por favor, preencha todos os campos.");
+      return;
+    }
+
+    const message = `Olá, meu nome é *${name}*.\nGostaria de agendar um horário para o dia *${date}* às *${time}*.\nMeu telefone é: *${phone}*`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappNumber = "5588999999999"; // substitua pelo número correto da Andreya Cabelos
+    const url = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    window.open(url, '_blank');
+  }
