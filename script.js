@@ -33,8 +33,9 @@ function confirmBooking() {
     const phone = document.getElementById('phone').value.trim();
     const dateInput = document.getElementById('date').value;
     const time = document.getElementById('time').value;
+    const servico = document.getElementById('servico').value;
 
-    if (!name || !phone || !dateInput || !time) {
+    if (!name || !phone || !dateInput || !time || !servico) {
         alert("Por favor, preencha todos os campos.");
         return;
     }
@@ -45,7 +46,8 @@ function confirmBooking() {
 
     const message = `Olá, meu nome é *${name}*.
 Gostaria de agendar um horário para o dia *${formattedDate}* às *${time}*.
-Meu telefone é: *${phone}*`;
+Meu telefone é: *${phone}*.
+Serviço desejado: *${servico}*.`;
 
     const encodedMessage = encodeURIComponent(message);
     const whatsappNumber = "5586995311133"; // Substitua pelo número real
