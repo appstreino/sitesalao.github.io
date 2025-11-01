@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Controle de Gastos — Dashboard</title>
+
+    <link rel="stylesheet" href="style_gastos.css">
+
+</head>
+
+<body>
+    <div class="app">
+        <aside class="card sidebar">
+            <header>
+                <div>
+                    <h1>Controle de Gastos</h1>
+                    <div class="muted">Rápido e responsivo — salva localmente</div>
+                </div>
+                <div class="small-muted">v1.0</div>
+            </header>
+
+            <div class="totals">
+                <div class="total-item">
+                    <h3>Saldo</h3>
+                    <p id="saldo">R$ 0,00</p>
+                </div>
+                <div class="total-item">
+                    <h3>Entradas</h3>
+                    <p id="entradas">R$ 0,00</p>
+                </div>
+                <div class="total-item">
+                    <h3>Saídas</h3>
+                    <p id="saidas">R$ 0,00</p>
+                </div>
+            </div>
+
+            <div class="card new-tx" style="padding:12px;">
+                <label for="desc">Descrição</label>
+                <input id="desc" type="text" placeholder="Ex: Venda, Supermercado..." />
+
+                <div class="row">
+                    <div>
+                        <label for="amount">Valor (use sinal positivo)</label>
+                        <input id="amount" type="number" step="0.01" placeholder="Ex: 120.50" />
+                    </div>
+                    <div>
+                        <label for="type">Tipo</label>
+                        <select id="type">
+                            <option value="expense">Saída</option>
+                            <option value="income">Entrada</option>
+                        </select>
+                    </div>
+                </div>
+
+                <label for="date">Data</label>
+                <input id="date" type="date" />
+
+                <div class="row">
+                    <button id="addBtn" class="btn btn-primary">Adicionar</button>
+                    <button id="clearBtn" class="btn btn-ghost">Limpar Tudo</button>
+                </div>
+
+                <div style="margin-top:8px; display:flex; gap:8px;">
+                    <button id="exportBtn" class="btn btn-ghost">Exportar JSON</button>
+                    <button id="importBtn" class="btn btn-ghost">Importar JSON</button>
+                    <input id="fileInput" type="file" accept="application/json" style="display:none">
+                </div>
+            </div>
+
+            <div style="margin-top:12px;">
+                <div class="muted">Transações</div>
+                <div class="list card" id="list"></div>
+            </div>
+        </aside>
+
+        <main>
+            <section class="card main-grid">
+                <div>
+                    <header
+                        style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+                        <div>
+                            <h2 style="margin:0">Painel</h2>
+                            <div class="small-muted">Resumo visual dos últimos 12 meses</div>
+                        </div>
+                        <div class="actions">
+                            <button id="filterMonth" class="btn btn-ghost">Últimos 30 dias</button>
+                            <button id="filterAll" class="btn btn-ghost">Todos</button>
+                        </div>
+                    </header>
+
+                    <div class="chart-wrap card" style="padding:12px;">
+                        <canvas id="chart"></canvas>
+                    </div>
+
+                    <div style="display:flex; gap:12px; margin-top:12px; flex-wrap:wrap;">
+                        <div class="card" style="flex:1; min-width:220px;">
+                            <h3 style="margin-top:0">Últimas transações</h3>
+                            <div id="mini-list" class="list" style="max-height:160px"></div>
+                        </div>
+
+                        <div class="card" style="width:320px;">
+                            <h3 style="margin-top:0">Filtros</h3>
+                            <label>Pesquisar</label>
+                            <input id="q" type="text" placeholder="Descrição..." />
+                            <label>Tipo</label>
+                            <select id="filterType">
+                                <option value="all">Todos</option>
+                                <option value="income">Entradas</option>
+                                <option value="expense">Saídas</option>
+                            </select>
+                            <div style="margin-top:8px; display:flex; gap:8px;">
+                                <button id="applyFilter" class="btn btn-primary">Aplicar</button>
+                                <button id="resetFilter" class="btn btn-ghost">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <aside>
+                    <div class="card">
+                        <h3 style="margin-top:0">Resumo rápido</h3>
+                        <div class="muted">Últimas 7 transações</div>
+                        <div id="quick" style="margin-top:8px"></div>
+                        <footer>
+                            <div class="muted">Dados salvos no <strong>localStorage</strong>. Você pode
+                                exportar/importar JSON.</div>
+                        </footer>
+                    </div>
+                </aside>
+            </section>
+        </main>
+    </div>
+
+    <script src="script_gastos.js"></script>
+
+</body>
+
+</html>
